@@ -1,0 +1,318 @@
+CDFG Begins
+
+
+****************   DFG Name: fiction_head    ******************
+
+Input List of DFG: 
+
+--------------------------------------
+
+Current Node index in DFG: 0
+
+Current Node Type: 
+
+Input Variable of Current Node:
+
+Output Node Index of Current Node: 
+
+
+--------------------------------------
+Output List of DFG:
+	| Destination DFG: start
+		| Output Variable: n
+	| Destination DFG: calc
+		| Output Variable: a
+	| Destination DFG: calc
+		| Output Variable: b
+
+--------------------------------------
+Branch of DFG:
+	| With Condition: 2
+		| Branch: fiction_head->0
+
+--------------------------------------
+
+****************   DFG Name: 0    ******************
+
+Input List of DFG: 
+
+--------------------------------------
+
+Current Node index in DFG: 0
+
+Current Node Type: 
+
+Input Variable of Current Node:
+
+Output Node Index of Current Node: 
+
+
+--------------------------------------
+Output List of DFG:
+	| Destination DFG: start
+		| Output Variable: c
+
+--------------------------------------
+Branch of DFG:
+
+--------------------------------------
+
+****************   DFG Name: start    ******************
+
+Input List of DFG: 
+	| Source DFG: calc
+		| Input Variabl: i_inc
+	| Source DFG: 0
+		| Input Variabl: c
+	| Source DFG: calc
+		| Input Variabl: cr
+	| Source DFG: fiction_head
+		| Input Variabl: n
+
+--------------------------------------
+
+Current Node index in DFG: 0
+
+Current Node Type: 
+
+Input Variable of Current Node:
+
+Output Node Index of Current Node: 
+	| Node Index: 1
+	| Node Index: 2
+	| Node Index: 2
+	| Node Index: 3
+
+--------------------------------------
+
+Current Node index in DFG: 1
+
+Current Node Type: Phi
+
+Input Variable of Current Node:
+	| Variable: 0
+	| Variable: i_inc
+
+Output Node Index of Current Node: 
+	| Node Index: 3
+	| Node Index: 4
+
+--------------------------------------
+
+Current Node index in DFG: 2
+
+Current Node Type: Phi
+
+Input Variable of Current Node:
+	| Variable: c
+	| Variable: cr
+
+Output Node Index of Current Node: 
+	| Node Index: 4
+	| Node Index: 4
+
+--------------------------------------
+
+Current Node index in DFG: 3
+
+Current Node Type: GE
+
+Input Variable of Current Node:
+	| Variable: i
+	| Variable: n
+
+Output Node Index of Current Node: 
+	| Node Index: 4
+
+--------------------------------------
+
+Current Node index in DFG: 4
+
+Current Node Type: Br
+
+Input Variable of Current Node:
+	| Variable: cond
+	| Variable: i
+	| Variable: cl
+	| Variable: cl
+
+Output Node Index of Current Node: 
+
+
+--------------------------------------
+Output List of DFG:
+	| Destination DFG: calc
+		| Output Variable: i
+	| Destination DFG: calc
+		| Output Variable: cl
+	| Destination DFG: ret
+		| Output Variable: cl
+
+--------------------------------------
+Branch of DFG:
+	| With Condition: 1
+		| Branch: start->ret
+	| With Condition: 0
+		| Branch: start->calc
+
+--------------------------------------
+
+****************   DFG Name: calc    ******************
+
+Input List of DFG: 
+	| Source DFG: fiction_head
+		| Input Variabl: a
+	| Source DFG: start
+		| Input Variabl: i
+	| Source DFG: fiction_head
+		| Input Variabl: b
+	| Source DFG: start
+		| Input Variabl: cl
+
+--------------------------------------
+
+Current Node index in DFG: 0
+
+Current Node Type: 
+
+Input Variable of Current Node:
+
+Output Node Index of Current Node: 
+	| Node Index: 1
+	| Node Index: 1
+	| Node Index: 2
+	| Node Index: 2
+	| Node Index: 4
+	| Node Index: 5
+
+--------------------------------------
+
+Current Node index in DFG: 1
+
+Current Node Type: Load
+
+Input Variable of Current Node:
+	| Variable: a
+	| Variable: i
+
+Output Node Index of Current Node: 
+	| Node Index: 3
+
+--------------------------------------
+
+Current Node index in DFG: 2
+
+Current Node Type: Load
+
+Input Variable of Current Node:
+	| Variable: b
+	| Variable: i
+
+Output Node Index of Current Node: 
+	| Node Index: 3
+
+--------------------------------------
+
+Current Node index in DFG: 5
+
+Current Node Type: Add
+
+Input Variable of Current Node:
+	| Variable: i
+	| Variable: 1
+
+Output Node Index of Current Node: 
+	| Node Index: 6
+
+--------------------------------------
+
+Current Node index in DFG: 3
+
+Current Node Type: Mul
+
+Input Variable of Current Node:
+	| Variable: ai
+	| Variable: bi
+
+Output Node Index of Current Node: 
+	| Node Index: 4
+
+--------------------------------------
+
+Current Node index in DFG: 4
+
+Current Node Type: Add
+
+Input Variable of Current Node:
+	| Variable: cl
+	| Variable: ci
+
+Output Node Index of Current Node: 
+	| Node Index: 6
+
+--------------------------------------
+
+Current Node index in DFG: 6
+
+Current Node Type: Br
+
+Input Variable of Current Node:
+	| Variable: i_inc
+	| Variable: cr
+
+Output Node Index of Current Node: 
+
+
+--------------------------------------
+Output List of DFG:
+	| Destination DFG: start
+		| Output Variable: i_inc
+	| Destination DFG: start
+		| Output Variable: cr
+
+--------------------------------------
+Branch of DFG:
+	| With Condition: 2
+		| Branch: calc->start
+
+--------------------------------------
+
+****************   DFG Name: ret    ******************
+
+Input List of DFG: 
+	| Source DFG: start
+		| Input Variabl: cl
+
+--------------------------------------
+
+Current Node index in DFG: 0
+
+Current Node Type: 
+
+Input Variable of Current Node:
+
+Output Node Index of Current Node: 
+	| Node Index: 1
+
+--------------------------------------
+
+Current Node index in DFG: 1
+
+Current Node Type: Ret
+
+Input Variable of Current Node:
+	| Variable: cl
+
+Output Node Index of Current Node: 
+
+
+--------------------------------------
+Output List of DFG:
+
+--------------------------------------
+Branch of DFG:
+	| With Condition: 2
+		| Branch: ret->cl
+
+--------------------------------------
+
