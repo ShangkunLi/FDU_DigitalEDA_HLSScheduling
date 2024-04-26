@@ -194,8 +194,6 @@ DataFlowGraph::DataFlowGraph(basic_block &bb)
         // Load
         else if (CurNode.operation.get_opType() == OP_LOAD)
         {
-            // load operation need to interact with memory
-            memory.push_back(Memaccess(label, currentNode, CurNode.operation.get_inputVars()[0], CurNode.operation.get_inputVars()[1]));
             for (int i = 0; i < CurNode.operation.get_inputVars().size(); i++)
                 CurNode.inputVar.push_back(CurNode.operation.get_inputVars()[i]);
             CreateEdges(CurNode, currentNode);

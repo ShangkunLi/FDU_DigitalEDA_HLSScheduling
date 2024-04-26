@@ -89,17 +89,6 @@ struct BranchEdge
     }
 };
 
-// Memory Access
-struct Memaccess
-{
-    string sourceLabel;
-    int sourceopIndex;
-    string arrayName;
-    string bias;
-    // construct function
-    Memaccess(string _sourceLabel, int _sourceopIndex, string _arrayName, string _bias) : sourceLabel(_sourceLabel), sourceopIndex(_sourceopIndex), arrayName(_arrayName), bias(_bias) {}
-};
-
 // Operation class
 class op
 {
@@ -232,13 +221,10 @@ private:
     // build a hash table for data accessing
     unordered_map<string, int> varTable;
 
-    // memory accessing
-    vector<Memaccess> memory;
-
     int period = 0;
 
 public:
-    // mark if the node is visited or not
+    // mark if this node is visited or not
     vector<int> Mark;
     // In-degree of the node
     vector<int> Indegree;
